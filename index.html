@@ -4,10 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="dragula.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <section id="contenedor">
-        <div id="toDo">
+        <div>
             
             <h1>Cosas que hacer pendientes</h1>
            <ul id="toDo">
@@ -39,5 +41,14 @@
         </div>
 
     </section>
+    <script src="dragula.js"></script>
+    <script>
+        dragula([document.querySelector('#toDo'), document.querySelector('#wip'), document.querySelector('#finish')])
+        .on('drag', function (el) {
+    console.log("Se ha agarrado una tarea para moverla")
+  }).on('drop', function (el) {
+    console.log("Se ha soltado una tarea para cambiar su estado")
+  });
+    </script>
 </body>
 </html>
